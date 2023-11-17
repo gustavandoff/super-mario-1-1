@@ -1,0 +1,38 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package mario;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+/**
+ *
+ * @author gusta
+ */
+public class ItemCoin extends Item { // använs inte i slutliga spelet. Var tänkt som de mynt som låg utplacerade som man kan plocka upp
+
+    public ItemCoin(double x, double y) {
+        super(x, y, (Game.BLOCK_SIZE * 0.5), (Game.BLOCK_SIZE * 0.5));
+    }
+
+    @Override
+    public void start() {
+        existing = true;
+        y -= Game.BLOCK_SIZE;
+    }
+
+    @Override
+    public void blockHit(int foreignX, int foreignWidth) {
+    }
+
+    @Override
+    public void draw(Graphics g) {
+        if (existing) {
+            g.setColor(Color.yellow);
+            g.fillRect(x + width / 2 + Game.scrollX, y, width, height);
+        }
+    }
+}
